@@ -1,10 +1,11 @@
 <template>
 <div class="home">
   <h1>Recipe collection</h1>
-  <p>Click on a recipe to view or comment.</p>
+  <p class="header_description">Click on a recipe to view or comment.</p>
   <p>Consider contributing recipes that are healthy and 
     delicious at the same time. Dark chocolate is healthy.
   </p>
+  <hr>
   <section class="image-gallery">
     <router-link class="image" v-for="item in items" :key="item.id" :to="'/recipe/' + item._id">
        <!-- <router-link :key="item.id" :to="{ title: 'item', params: { id: item.id }}">> -->
@@ -18,6 +19,7 @@
       <!-- </router-link> -->
     </router-link>
   </section>
+  <hr><br><br>
 </div>
 </template>
 
@@ -67,16 +69,29 @@ export default {
 *:after {
   box-sizing: inherit;
 }
+hr{
+  background-color:black;
+  height:2px;
+}
 .image-gallery {
   column-gap: 1.5em;
+  background-color:khaki;
+  padding:10px;
 }
 .image {
   margin: 0 0 1.5em;
   display: inline-block;
   width: 100%;
+  /* border-style:solid; */
+}
+.header_description{
+  text-decoration:underline;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size:18px;
 }
 .image img {
-  width: 100%;
+  width: 97%;
+  margin:3px;
 }
 /* Masonry on large screens */
 @media only screen and (min-width: 1024px) {

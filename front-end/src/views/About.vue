@@ -15,12 +15,13 @@
         <input v-if="contribute" class="recipe_name" v-model="title" placeholder="Recipe name">
         <textarea v-if="contribute" v-model="text" placeholder="Short description"></textarea>
         <input v-if="contribute" type="file" name="photo" @change="fileChanged">
-        <button v-if="contribute" @click="upload">Upload</button>
-      </div>
-      <div class="upload" v-if="addItem">
+        <button class = "upload_button" v-if="contribute" @click="upload">Upload</button>
+        <div class="upload" v-if="addItem">
         <h2>{{addItem.title}}</h2>
         <img :src="addItem.path" />
       </div>
+      </div>
+      
     </div>
 
     <div class="edit">
@@ -31,11 +32,11 @@
           <img :src="findItem.path" />
           <textarea v-model="text" placeholder="short description"></textarea>
           <div class="actions" v-if="findItem">
-          <button @click="deleteItem(findItem)">Delete</button>
-          <button @click="editItem(findItem)">Edit</button>
-          <hr style = emphas>
-          <br>
-        </div>
+            <button @click="deleteItem(findItem)">Delete</button>
+            <button @click="editItem(findItem)">Edit</button>
+            <hr style = emphas>
+            <br>
+          </div>
         </div>
         
       
@@ -241,6 +242,9 @@ export default {
 </script>
 
   <style scoped>
+  .upload_button{
+    width:120px;
+  }
   hr{
     height:6px;
     background-color:black;
@@ -255,18 +259,33 @@ export default {
     display:flex;
     flex-wrap:wrap;
     flex-direction:column;
+    justify-content:center;
   }
   .form{
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
     padding: 15px;
+    margin:0 auto;
+    max-width:95%;
   }
   
   .form, .edit{
     border-style:solid;
     padding:20px;
+    background-color:lavender;
   }
+  .edit{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .upload{
+      max-width:90%;
+    }
+    /* .recipe, .upload{
+      border-style:solid;
+    } */
 .image h2 {
   font-style: italic;
   font-size: 1em;
@@ -283,12 +302,13 @@ export default {
   margin-left: 10px;
 }
 
-.add,
+
 .edit {
   display: flex;
   flex-wrap:wrap;
   flex-direction:column;
   max-width: 500 px;
+  margin:10px auto;
 }
 
 .circle {
@@ -309,6 +329,9 @@ button {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
 }
+input, textarea, hr{
+  max-width:90%;
+}
 
 .form {
   margin-right: 50px;
@@ -321,6 +344,7 @@ button {
 
 .upload img {
   max-width: 300px;
+  max-width:90%;
 }
 </style>
 

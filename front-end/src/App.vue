@@ -9,7 +9,7 @@
     
     <router-view/>
     <div class='footer'>
-      <a class = 'footer-item' href='https://github.com/MichaelCh-svg/latvija.git'> Git Code</a>
+      <a class = 'footer-item' href='https://github.com/MichaelCh-svg/contribute_recipes.chempservers.com.git'> Git Code</a>
     </div>
   </div>
 </template>
@@ -28,11 +28,23 @@
 *{
   padding: 50 px;
 }
+template{
+  background-color:gainsboro;
+}
 .title {
   margin-top: 10px;
 }
 .title h1 {
   font-size: 30px;
+}
+p{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1{
+  font-family:cursive;
+}
+h2{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .footer{
     display:flex;

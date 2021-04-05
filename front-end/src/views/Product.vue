@@ -1,9 +1,12 @@
 <template>
 <div>
+  <div class="page_top">
+  <br>
   <h1>{{recipe.title}}</h1>
   <img :src="recipe.path" />
   <p>{{recipe.description}}</p>
   <h2>instructions:</h2>
+  </div>
   <ol>
     <!-- <li v-for="item in filteredTodos" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)"> -->
     <li v-for="instruction in instructions" :key="instruction.id">
@@ -50,15 +53,18 @@
             <br />
             <button type="submit">Comment</button>
           </form>
+          <br>
           <h3>Comments</h3>
+          
           <ul>
+  
     <!-- <li v-for="item in filteredTodos" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)"> -->
     <li v-for="comment in comments" :key="comment.id">
-      <hr>
+            <form v-on:submit.prevent="deleteComment(comment)">
             <p>{{comment.text}}</p>
             <p><i>-- {{comment.user}}</i></p>
-            <form v-on:submit.prevent="deleteComment(comment)">
-            <button type="submit"> delete</button>
+            
+            <button class="delete" type="submit"> delete</button>
             </form>
     </li>
   </ul>
@@ -254,12 +260,37 @@ export default {
 </script>
 
 <style scoped>
+.page_top{
+  background-color:sienna;
+  padding:10px;
+}
 img{
   max-width:500px;
+  max-width:90%;
   max-height: 500px;
 }
+ol{
+  background-color:lightsteelblue;
+  padding:5px;
+  padding-left:13px;
+  border-style:solid;
+}
+ol li{
+  padding:6px;
+  padding-left:12px;
+}
+ol, li{
+  border-style:solid;
+}
+li{
+  background-color:lightseagreen;
+  margin-top:25px;
+}
+hr{
+  background-color:black;
+}
 .comments{
-  background-color:darkgoldenrod;
+  background-color:sienna;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -285,7 +316,7 @@ img{
   object-fit: cover;
 }
 textarea {
-    width: 100%;
+    width: 90%;
     max-width: 500px;
     height: 100px;
 }
@@ -296,7 +327,14 @@ form{
   flex-direction:column;
   align-items: center;
 }
-button, input {
+ input {
   width: 160px;
+}
+button{
+  width:120px;
+}
+.delete{
+  width:70px;
+  background-color:cadetblue;
 }
 </style>
